@@ -14,10 +14,10 @@ It does not assume that an AI coding assistant has unrestricted authority, acces
 
 ## Repository Structure
 
-    âââ README.md               # Project documentation
-    âââ CODING_AGENT_POLICY.md  # Normative coding-agent policy
-    âââ CHANGELOG.md            # Version history
-    âââ LICENSE                 # CC BY-SA 4.0 license
+    ├── README.md               # Project documentation
+    ├── CODING_AGENT_POLICY.md  # Normative coding-agent policy
+    ├── CHANGELOG.md            # Version history
+    └── LICENSE                 # CC BY-SA 4.0 licens
 
 ## Policy Scope
 
