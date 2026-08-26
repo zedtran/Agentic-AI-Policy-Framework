@@ -1,50 +1,214 @@
-# Coding Agent Governance Policy Framework
+# Coding Agent Governance Policy
 
-A modular, reusable AI governance framework designed to be injected as a session preamble, system prompt, or rules file for AI coding assistants (Claude Code, GitHub Copilot, Cursor, and similar tools).
+A reusable governance and engineering policy for AI coding assistants operating in software, cloud, cybersecurity, and related technical engineering environments.
 
 ## Overview
 
-As AI coding agents move from autocomplete to autonomous multi-step execution — running commands, modifying files, touching infrastructure — the governance gap between "helpful tool" and "unsupervised actor" grows. This repo is a starting framework for closing that gap: a taxonomy of governance domains an organization (or individual) should define policy for, plus fully drafted sections ready to use today.
+This repository provides a normative policy for AI coding assistants used as technical engineering advisors and software-development agents. It is intended to establish consistent requirements for engineering quality, security, privacy, information protection, documentation, validation, decision-making, operational integrity, and accountability.
+
+The policy is designed for environments in which an AI coding assistant may analyze repositories, generate or modify code, execute commands, interact with development tooling, and assist with infrastructure or other engineering activities.
+
+The policy distinguishes between requirements the agent is expected to follow, requirements imposed by the project or organization, recommended engineering practices, and capabilities that depend on the execution environment.
+
+It does not assume that an AI coding assistant has unrestricted authority, access, execution capability, or control over external systems.
 
 ## Repository Structure
 
-```
-├── README.md               # this file
-├── CODING_AGENT_POLICY.md  # the framework itself
-├── CHANGELOG.md            # version history
-└── LICENSE                 # CC BY-SA 4.0
-```
+    âââ README.md               # Project documentation
+    âââ CODING_AGENT_POLICY.md  # Normative coding-agent policy
+    âââ CHANGELOG.md            # Version history
+    âââ LICENSE                 # CC BY-SA 4.0 license
 
-## What's Inside
+## Policy Scope
 
-- **A full heading taxonomy** spanning Governance & Accountability, Data Handling, IP & Attribution, Security, Model Assurance, Human Oversight, Development Practices, Compliance & Legal, and Risk Management
-- **Fully drafted sections**, including:
-  - Human Oversight (human-in-the-loop requirements, prohibition on unsupervised high-stakes decisions, user training)
-  - Model Output Attribution & Disclosure
-  - Session Activity Journal — a STAR-format rule requiring AI coding agents to log a literal, verifiable record of every action, command, and CRUD operation performed each turn, with metrics where available
+`CODING_AGENT_POLICY.md` establishes requirements covering:
+
+- Engineering role, mission, and operating principles
+- Data confidentiality, privacy, non-provenance, and organizational attribution
+- Cybersecurity hygiene and secret sanitization
+- Classification, Controlled Unclassified Information (CUI), and information-protection boundaries
+- Export-control considerations, including International Traffic in Arms Regulations (ITAR) and Export Administration Regulations (EAR)
+- Cloud architecture, modernization, DevSecOps, and technical engineering practices
+- Communication, prose, and formatting standards
+- Formal report generation
+- Universal code documentation, hygiene, traceability, and production-grade quality
+- Incidental non-compliance detection and scoped remediation
+- Efficiency, performance, and complexity awareness
+- Language-specific coding standards and validation tooling
+- File headers, function/class documentation, and repository documentation
+- Merge-readiness
+- Operational integrity and non-fabrication
+- Session Activity Journal requirements
+- Policy priority and conflict resolution
+- Applicability and authority resolution
+- Environment-dependent and non-enforceable requirements
+- Constructive skepticism at material engineering decision boundaries
+- Final operating standards for technical engineering assistance
+
+## Key Engineering Principles
+
+The policy establishes several cross-cutting principles:
+
+- Prefer secure, correct, maintainable, interoperable, modular, scalable, observable, and operationally supportable solutions.
+- Use authoritative standards, verified environmental state, and reproducible measurements rather than unsupported assumptions.
+- Prefer established tools, libraries, language facilities, project conventions, and recognized engineering patterns over unnecessary custom implementations.
+- Consider time and space complexity relative to expected scale and apply materially beneficial efficiency techniques when justified.
+- Balance performance against readability and maintainability; optimization is not an unconditional objective.
+- Treat security, privacy, compliance, resilience, lifecycle management, and operational ownership as engineering concerns.
+- Surface material risks and questionable assumptions at critical decision boundaries rather than silently proceeding.
+- Reassess earlier recommendations when new information changes their technical basis.
+- Detect and report existing policy non-conformance encountered during authorized work rather than silently ignoring it or silently modifying unrelated code.
+- Prefer durable remediation over superficial symptom treatment.
+- Never represent an action, result, repository state, measurement, validation result, authorization, or external condition as verified when it was not actually verified.
+
+## Code Quality and Validation
+
+The policy applies documentation and quality requirements to Code Output regardless of whether the output is a complete file, a small utility, a configuration fragment, an example, or a code snippet.
+
+Where applicable, generated or modified code is expected to be:
+
+- Correct and secure
+- Maintainable and readable
+- Consistent with the project architecture and applicable Style Authority
+- Free of unnecessary dead code and debug artifacts
+- Appropriately documented
+- Validated with available formatters, linters, static-analysis tools, tests, scanners, or other applicable tooling
+
+The policy does not permit an agent to claim that validation succeeded merely because validation was expected or because the code appears correct. Tool execution and observed results are required for a verified validation claim.
+
+Language-specific standards and tooling are defined separately from the universal engineering requirements so that common policy principles remain language-independent while implementation details can follow the appropriate ecosystem.
+
+## Incidental Non-Compliance
+
+The policy requires proactive handling of existing documentation or quality deficiencies encountered during authorized work.
+
+When an existing file, module, or repository is found to violate applicable policy standards:
+
+1. The non-conformance is identified in the response.
+2. The affected file or scope and violated standard are stated.
+3. Where branch/PR capability exists, remediation is isolated into a dedicated, appropriately scoped change unless directed otherwise.
+4. Designated maintainers or CODEOWNERS are identified through the repository's available mechanisms.
+5. Such remediation is not merged or finalized without the required human review.
+6. Broad findings are handled through a scoped inventory and phased remediation recommendation rather than an unbounded change.
+
+These requirements apply regardless of whether the existing code was produced by a human or an AI system.
+
+## Session Activity Journal
+
+Qualifying turns require a user-visible Session Activity Journal documenting actions actually performed during the turn.
+
+The journal uses STAR structure and action classifications:
+
+- `[C]` Create
+- `[R]` Read
+- `[U]` Update
+- `[D]` Delete
+- `[X]` Execution or diagnostic action that is not a data operation
+
+The journal records the actual command, tool call, file path, query, or operation and its observed result. Failed actions remain recorded as failed attempts.
+
+The journal does not create authority to persist, disclose, transmit, or expose protected information. Privacy, secret-handling, classification, CUI, and other information-protection requirements take precedence.
+
+The policy also recognizes that journal generation, tool execution, external-state verification, and other controls can depend on the capabilities and permissions of the execution environment.
+
+## Policy Authority Model
+
+The policy distinguishes among:
+
+| Classification | Meaning |
+|---|---|
+| `MANDATORY` | Required by an applicable governing authority or by the policy |
+| `PROJECT` | Required by the applicable project or repository |
+| `DEFAULT` | Default engineering practice established by the policy |
+| `RECOMMENDED` | Technically preferred but not mandatory |
+| `CONDITIONAL` | Applicable only under specified conditions |
+| `UNVERIFIED` | Cannot currently be established |
+
+Where requirements conflict, the policy provides an explicit precedence hierarchy covering applicable law, information protection, secrets, attribution, factual accuracy, security, project requirements, engineering quality, and activity reporting.
+
+The policy does not independently establish legal, classification, export-control, contractual, authorization, or organizational determinations. Where such determinations require an authorized authority, the agent is expected to identify the limitation and defer appropriately.
 
 ## How to Use
 
-- **As a session preamble** — paste relevant sections into your system prompt or initial instructions to an AI assistant
-- **As a Claude Code rules file** — drop `CODING_AGENT_POLICY.md` (or an excerpt) into `.claude/rules/` or reference it from `CLAUDE.md`
-- **As a starting template** — use the heading taxonomy as a checklist for your own org's AI governance policy, and replace placeholder headings with your own drafted language
+### As a system or session policy
+
+Use `CODING_AGENT_POLICY.md` as a system-level policy, session preamble, rules file, or equivalent mechanism supported by the target coding-agent environment.
+
+Use the complete policy where the execution environment and context support it. Where prompt or policy size is constrained, use the applicable sections while preserving the policy's precedence and applicability rules.
+
+### With repository-specific rules
+
+The policy is intended to coexist with project-specific engineering standards.
+
+Project-specific Style Authorities, repository conventions, contractual requirements, and applicable organizational controls should be identified and applied according to the policy's applicability and precedence rules.
+
+The policy should not be mechanically imposed where an explicit applicability determination shows that a requirement does not govern the work.
+
+### As an organizational starting point
+
+Organizations may adapt the policy to their own:
+
+- Security requirements
+- Privacy requirements
+- Software-development lifecycle
+- Repository controls
+- Review and approval workflows
+- Identity and attribution model
+- Regulatory and contractual environment
+- Tooling and execution architecture
+- Records-management requirements
+- AI governance requirements
+
+Adaptations should preserve clear distinctions between mandatory controls, project requirements, defaults, recommendations, conditional requirements, and capabilities that cannot be technically enforced.
 
 ## Status
 
-This is a **living document**. Headings marked in the table of contents are fully drafted; the remainder are outline-only placeholders. Contributions filling in additional sections are welcome via pull request.
+Version `0.2.0` is the current substantive policy revision.
+
+The policy is maintained as a living document. Changes that introduce substantive normative requirements or fully drafted policy sections are treated as MINOR-version changes. Structural or taxonomy changes are treated as MAJOR-version changes. Wording, clarity, consistency, and editorial corrections are treated as PATCH-version changes.
+
+See `CHANGELOG.md` for the revision history.
+
+## Limitations
+
+This policy is a governance artifact, not a technical enforcement mechanism by itself.
+
+A policy statement does not create a capability that the execution environment does not provide. Effective enforcement may depend on repository permissions, identity configuration, branch protection, available tooling, network controls, platform behavior, organizational authorities, and other external dependencies.
+
+The policy therefore requires explicit distinction among:
+
+- What the policy requires
+- What the agent can technically enforce
+- What the agent actually verified
+- What depends on an administrator, organization, platform, authority, or other external actor
+
+No provision should be interpreted as a guarantee of vulnerability-free software, complete prevention of future failures, unrestricted environmental visibility, legal compliance, classification status, export authorization, or control over third-party systems.
 
 ## Disclaimer
 
-This is an independent, personal project. It does not represent the official policy, position, or endorsement of any employer, client, contractor, or government agency. Nothing here constitutes legal advice — consult your organization's legal, compliance, and security teams before adopting any part of this framework.
+This is an independent project. It does not represent the official policy, position, or endorsement of any employer, client, contractor, government agency, or other organization unless explicitly adopted or incorporated by that organization.
+
+This repository does not constitute legal, regulatory, classification, export-control, cybersecurity authorization, or compliance advice. Organizations should obtain appropriate legal, security, privacy, compliance, contracting, export-control, classification, and other authoritative determinations before adopting the policy for operational use.
 
 ## License
 
-Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) — see [LICENSE](./LICENSE). You're free to share and adapt this work, including commercially, provided you give appropriate attribution and license derivatives under the same terms.
+Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). See [LICENSE](./LICENSE).
+
+You may share and adapt this work, including commercially, subject to the terms of the license and its attribution and ShareAlike requirements.
 
 ## Author
 
-[Don Tran](mailto:don.tran@mail.traners.co?subject=Coding%20Agent%20Governance%20Policy%20Framework) — Senior Cloud Architect, DSO Engineer
+[Don Tran](mailto:don.tran@mail.traners.co?subject=Coding%20Agent%20Governance%20Policy%20Framework) â Senior Cloud Architect, DSO Engineer
 
 ## Contributing
 
-Issues and pull requests proposing drafted language for open headings, corrections, or structural improvements are welcome.
+Issues and pull requests proposing substantive policy improvements, corrections, applicability clarifications, standards updates, or structural improvements are welcome.
+
+Contributions should:
+
+- Identify the policy requirement or structural issue being addressed.
+- Preserve consistency with the policy's precedence and applicability model.
+- Avoid introducing duplicate requirements where an existing requirement or cross-reference is sufficient.
+- Distinguish mandatory requirements from recommendations and environment-dependent behavior.
+- Avoid claims that depend on capabilities the policy or execution environment cannot establish.
+- Update `CHANGELOG.md` when a change warrants a documented release entry.
