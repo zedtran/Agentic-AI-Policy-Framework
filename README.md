@@ -14,10 +14,20 @@ It does not assume that an AI coding assistant has unrestricted authority, acces
 
 ## Repository Structure
 
-    ├── README.md               # Project documentation
-    ├── CODING_AGENT_POLICY.md  # Normative coding-agent policy
-    ├── CHANGELOG.md            # Version history
-    └── LICENSE.txt             # CC BY-SA 4.0 license
+    ├── README.md                       # Project documentation
+    ├── CODING_AGENT_POLICY.md          # Normative coding-agent policy
+    ├── CHANGELOG.md                    # Version history
+    ├── LICENSE.txt                     # CC BY-SA 4.0 license
+    ├── AGENTS.md                       # Cross-vendor agent adapter (hub for the files below)
+    ├── CLAUDE.md                       # Claude Code adapter (imports AGENTS.md and the policy)
+    ├── GEMINI.md                       # Gemini CLI adapter (imports AGENTS.md and the policy)
+    ├── .github/
+    │   └── copilot-instructions.md     # GitHub Copilot adapter
+    ├── .cursor/
+    │   └── rules/
+    │       └── coding-agent-policy.mdc # Cursor rule adapter
+    └── templates/
+        └── ORGANIZATIONAL_OVERLAY.md   # Template for an adopting organization's overlay
 
 ## Policy Scope
 
@@ -40,7 +50,7 @@ It does not assume that an AI coding assistant has unrestricted authority, acces
 - Operational integrity and non-fabrication
 - Session Activity Journal requirements
 - Policy priority and conflict resolution
-- Applicability and authority resolution
+- Applicability and authority resolution, including organizational overlays
 - Environment-dependent and non-enforceable requirements
 - Constructive skepticism at material engineering decision boundaries
 - Final operating standards for technical engineering assistance
@@ -136,6 +146,28 @@ Use `CODING_AGENT_POLICY.md` as a system-level policy, session preamble, rules f
 
 Use the complete policy where the execution environment and context support it. Where prompt or policy size is constrained, use the applicable sections while preserving the policy's precedence and applicability rules.
 
+### With coding-agent tools
+
+Each agent ecosystem reads a different instruction file. The adapters in this repository point every tool at the same policy instead of duplicating it. `AGENTS.md` is the hub: it states the precedence order and where an organizational overlay lives. The other files either import it or refer to it.
+
+| Tool | File | Mechanism |
+|---|---|---|
+| Codex, Cursor, Copilot cloud agent, Jules, Devin, Aider, and other AGENTS.md-aware agents | `AGENTS.md` | Read natively from the repository root |
+| Claude Code | `CLAUDE.md` | `@AGENTS.md` and `@CODING_AGENT_POLICY.md` imports load both at session start |
+| Gemini CLI | `GEMINI.md` | `@./AGENTS.md` and `@./CODING_AGENT_POLICY.md` imports load both at session start |
+| GitHub Copilot (chat, code review, cloud agent) | `.github/copilot-instructions.md` | Repository-wide instructions; points at the policy |
+| Cursor | `.cursor/rules/coding-agent-policy.mdc` | `alwaysApply` rule; points at the policy. Cursor also reads `AGENTS.md` directly |
+
+Import-capable tools load the full policy into context at launch. Pointer-only tools depend on the agent reading `CODING_AGENT_POLICY.md` when instructed, which requires file-read access to the repository. Tool file conventions were verified against each vendor's documentation on 2026-09-04 and change frequently; re-verify before relying on them.
+
+To adopt the policy in another repository, copy `CODING_AGENT_POLICY.md`, `AGENTS.md`, and the adapter files for the tools in use. Remove the section of `AGENTS.md` that describes working in this repository and replace it with the target project's build, test, and convention instructions.
+
+### With an organizational overlay
+
+Organization-specific requirements do not belong in the policy. The policy's Section 18.3 defines an overlay: a separate artifact that adds the organization's service-principal identity, applicable regulatory and contractual regimes, approved secret stores, Style Authorities, reporting conventions, and any additional mandatory requirements. An overlay may add or tighten requirements. It may not relax anything the policy or applicable law makes mandatory.
+
+Copy `templates/ORGANIZATIONAL_OVERLAY.md` to `ORGANIZATIONAL_OVERLAY.md` at the repository root (or to a user- or organization-scoped instruction location supported by the tool), replace every placeholder, and delete sections that do not apply. `AGENTS.md` already tells agents to apply an overlay at that path when one exists.
+
 ### With repository-specific rules
 
 The policy is intended to coexist with project-specific engineering standards.
@@ -163,7 +195,7 @@ Adaptations should preserve clear distinctions between mandatory controls, proje
 
 ## Status
 
-Version `0.2.1` is the current policy revision.
+Version `0.3.0` is the current policy revision.
 
 The policy is maintained as a living document. Changes that introduce substantive normative requirements or fully drafted policy sections are treated as MINOR-version changes. Structural or taxonomy changes are treated as MAJOR-version changes. Wording, clarity, consistency, and editorial corrections are treated as PATCH-version changes.
 
