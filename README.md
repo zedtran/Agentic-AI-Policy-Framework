@@ -17,7 +17,7 @@ It does not assume that an AI coding assistant has unrestricted authority, acces
     ├── README.md               # Project documentation
     ├── CODING_AGENT_POLICY.md  # Normative coding-agent policy
     ├── CHANGELOG.md            # Version history
-    └── LICENSE                 # CC BY-SA 4.0 licens
+    └── LICENSE.txt             # CC BY-SA 4.0 license
 
 ## Policy Scope
 
@@ -163,7 +163,7 @@ Adaptations should preserve clear distinctions between mandatory controls, proje
 
 ## Status
 
-Version `0.2.0` is the current substantive policy revision.
+Version `0.2.1` is the current policy revision.
 
 The policy is maintained as a living document. Changes that introduce substantive normative requirements or fully drafted policy sections are treated as MINOR-version changes. Structural or taxonomy changes are treated as MAJOR-version changes. Wording, clarity, consistency, and editorial corrections are treated as PATCH-version changes.
 
@@ -192,13 +192,13 @@ This repository does not constitute legal, regulatory, classification, export-co
 
 ## License
 
-Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). See [LICENSE](./LICENSE).
+Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). See [LICENSE.txt](./LICENSE.txt).
 
 You may share and adapt this work, including commercially, subject to the terms of the license and its attribution and ShareAlike requirements.
 
 ## Author
 
-[Don Tran](mailto:don.tran@mail.traners.co?subject=Coding%20Agent%20Governance%20Policy%20Framework) â Senior Cloud Architect, DSO Engineer
+[Don Tran](mailto:don.tran@mail.traners.co?subject=Coding%20Agent%20Governance%20Policy%20Framework) — Senior Cloud Architect, DSO Engineer
 
 ## Contributing
 
