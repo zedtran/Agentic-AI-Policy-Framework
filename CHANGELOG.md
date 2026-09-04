@@ -7,11 +7,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Planned
+
 - No planned changes currently recorded.
+
+## [0.2.1] - 2026-09-04
+
+### Added
+
+- Version line beneath the policy title so the artifact identifies its own revision.
+- Abbreviations table in the policy front matter defining the regulatory and domain acronyms used throughout (ATO, BIS, CUI, DDTC, EAR, ECCN, ITAR, USML, and others), satisfying the policy's own acronym-definition requirement.
+- Definitions for the normative actors "System" and "User", which were used throughout the policy but never defined.
+
+### Changed
+
+- Demoted all section and subsection headings by one level so the policy has a single top-level heading.
+- Enclosed the Session Activity Journal template and the no-activity sentence in HTML code blocks so the template's headings no longer appear in the document outline and the literal text is unambiguous.
+- Replaced the undefined "10 steps ahead" phrase in Proactive Engineering Posture with a self-contained statement.
+- Changelog release links now point at this repository instead of the OWNER/REPOSITORY placeholder.
+
+### Fixed
+
+- Session Activity Journal cross-references in the Definitions table and in Incidental Non-Compliance Discovery & Remediation pointed at Section XVI (Formal Reports) instead of Section XV.
+- Interpretation and Authority referenced "Section 17" using Arabic numbering and an ampersand; it now matches the Section XVII heading.
+- Double-encoded UTF-8 characters (em dashes in the journal template, curly quotes in this changelog, and the em dash in the README author line).
+- README repository tree listed `LICENSE` and a truncated word; the file is `LICENSE.txt`, and the README license link now resolves.
+- "bona-fide" corrected to "bona fide".
+- Blank lines added after changelog headings and before lists for Markdown lint compliance.
 
 ## [0.2.0] - 2026-08-26
 
 ### Added
+
 - Incidental Non-Compliance Discovery & Remediation requirements under Universal Code Documentation, Hygiene & Traceability, including:
   - Detection and reporting of documentation and quality-policy drift encountered during any authorized work.
   - Dedicated, scoped remediation PRs where branch/PR capability exists.
@@ -37,6 +63,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   - Recording of acknowledged risks and user-directed decisions in the Session Activity Journal.
 
 ### Changed
+
 - Consolidated proactive engineering posture so prevention, standards-first construction, and critical-decision skepticism are defined as engineering behaviors rather than duplicated across documentation or language-specific requirements.
 - Clarified that incidental policy non-compliance is reported and remediated through scoped work rather than silently corrected as an unrelated side effect.
 - Clarified that performance optimization is balanced against readability and maintainability rather than treated as an unconditional objective.
@@ -49,11 +76,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Converted literal examples that would otherwise terminate the enclosing Markdown code block into HTML code blocks for safe inclusion within the policy source representation.
 
 ### Fixed
+
 - Duplicate DevSecOps Playbook statement in the Domain Expertise & Operational Baseline section.
 - Duplicate export-control section numbering.
 - Redundant export-control requirements and repeated jurisdiction/authorization cautions where equivalent requirements could be consolidated.
 - Repeated non-fabrication and verification language where a single authoritative requirement and cross-reference is sufficient.
-- Inconsistent use of âSystem,â âagent,â and âAI coding assistantâ where the surrounding policy establishes the System as the normative actor.
+- Inconsistent use of “System,” “agent,” and “AI coding assistant” where the surrounding policy establishes the System as the normative actor.
 - Overly absolute or aspirational wording that could imply capabilities the System cannot guarantee, including predictive certainty, universal prevention, or unrestricted environmental verification.
 - Structural ambiguity between policy requirements, project requirements, defaults, recommendations, conditional requirements, and unverifiable states.
 - Changelog taxonomy mismatch with the current policy structure.
@@ -61,6 +89,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [0.1.0] - 2026-08-25
 
 ### Added
+
 - Initial AI Coding Assistant Policy structure and normative operating requirements.
 - Data confidentiality, privacy, non-provenance, and organizational attribution requirements.
 - Cybersecurity hygiene and secret-sanitization requirements.
@@ -78,6 +107,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Decision and response model.
 - Final operating standard.
 
-[Unreleased]: https://github.com/OWNER/REPOSITORY/compare/v0.2.0...HEAD
-[0.2.0]: https://github.com/OWNER/REPOSITORY/releases/tag/v0.2.0
-[0.1.0]: https://github.com/OWNER/REPOSITORY/releases/tag/v0.1.0
+[Unreleased]: https://github.com/zedtran/Agentic-AI-Policy-Framework/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/zedtran/Agentic-AI-Policy-Framework/compare/v0.2.0...v0.2.1
+[0.2.0]: https://github.com/zedtran/Agentic-AI-Policy-Framework/releases/tag/v0.2.0
+[0.1.0]: https://github.com/zedtran/Agentic-AI-Policy-Framework/releases/tag/v0.1.0
