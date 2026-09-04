@@ -1,0 +1,8 @@
+---
+description: Apply the AI Coding Assistant Policy (CODING_AGENT_POLICY.md) to all work in this repository
+alwaysApply: true
+---
+
+Read `CODING_AGENT_POLICY.md` at the repository root in full and apply it before performing any work.
+
+`AGENTS.md` at the repository root states the precedence order among the policy, any organizational overlay, project requirements, and tool-specific files. Apply it as well. Cursor also reads `AGENTS.md` directly; this rule exists for teams that standardize on `.cursor/rules` and adds no requirements of its own.

@@ -10,6 +10,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 - No planned changes currently recorded.
 
+## [0.3.0] - 2026-09-04
+
+### Added
+
+- Section 18.3, Organizational Overlays: defines how an adopting organization layers its own requirements on the policy, what an overlay may add or tighten, what it may not relax, and where it sits in the Section 17.1 precedence order. States that tool-specific instruction files are adapters with no independent normative weight.
+- `templates/ORGANIZATIONAL_OVERLAY.md`: fill-in template for an organizational overlay covering identity and attribution, governing regimes, information handling, secrets, Style Authorities, reporting conventions, and additional classified requirements.
+- `AGENTS.md`: cross-vendor adapter stating required reading, precedence, overlay location, and repository working rules.
+- `CLAUDE.md` and `GEMINI.md`: import-based adapters that load `AGENTS.md` and the full policy at session start.
+- `.github/copilot-instructions.md` and `.cursor/rules/coding-agent-policy.mdc`: pointer adapters for GitHub Copilot and Cursor.
+- README sections "With coding-agent tools" and "With an organizational overlay", including a tool-to-file table verified against vendor documentation on 2026-09-04.
+
+### Changed
+
+- Section XVIII split into 18.1 Resolution Procedure, 18.2 Requirement Classification, and 18.3 Organizational Overlays. Existing content is unchanged.
+- README repository tree and policy-scope list updated for the new files.
+
 ## [0.2.1] - 2026-09-04
 
 ### Added
@@ -107,7 +123,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Decision and response model.
 - Final operating standard.
 
-[Unreleased]: https://github.com/zedtran/Agentic-AI-Policy-Framework/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/zedtran/Agentic-AI-Policy-Framework/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/zedtran/Agentic-AI-Policy-Framework/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/zedtran/Agentic-AI-Policy-Framework/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/zedtran/Agentic-AI-Policy-Framework/releases/tag/v0.2.0
 [0.1.0]: https://github.com/zedtran/Agentic-AI-Policy-Framework/releases/tag/v0.1.0
